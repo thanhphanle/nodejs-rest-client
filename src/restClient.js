@@ -1,4 +1,5 @@
 const axios = require('axios')
+const qs = require('qs');
 
 const RestClient = class {
 
@@ -56,7 +57,24 @@ const RestClient = class {
     }
 
     // Post with content-type = application/x-www-form-urlencoded
-
+    postFormData(name,value) {
+        let headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+        let data = {
+            name: name,
+            value: value
+        }
+        axios.post('http://localhost:8080/form-data', qs.stringify(data), { headers: headers })
+            .then(response => {
+                // Handle success.
+                console.log(response.data)
+            })
+            .catch(error => {
+                // Handle error.
+                console.error('An error occurred:', error);
+            });
+    }
 }
 
 module.exports = RestClient
