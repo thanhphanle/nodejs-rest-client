@@ -20,9 +20,13 @@ const RestClient = class {
             });
     }
 
-    // Get user data
-    getUsers() {
-        axios.get('http://localhost:8080/users', null)
+    // Get list of user data
+    // http://localhost:8080/users
+    getUsers(token) {
+        let headers = {
+            'Authorization': 'Bearer ' + token
+        }
+        axios.get('http://localhost:8080/users', { headers: headers })
             .then(response => {
                 // Handle success.
                 console.log(response.data)
@@ -54,7 +58,7 @@ const RestClient = class {
     }
 
     // Post with Authorization header and json body
-    saveUser(token, user) {
+    saveUser(token,user) {
         let headers = {
             'Authorization': 'Bearer ' + token,
             'Content-Type': 'application/json'
@@ -77,15 +81,16 @@ const RestClient = class {
     }
 
     // Post with content-type = application/x-www-form-urlencoded
-    postFormData(name,value) {
+    submitForm(token,name,value) {
         let headers = {
+            'Authorization': 'Bearer ' + token,
             'Content-Type': 'application/x-www-form-urlencoded'
         }
         let data = {
             name: name,
             value: value
         }
-        axios.post('http://localhost:8080/form-data', qs.stringify(data), { headers: headers })
+        axios.post('http://localhost:8080/submit-form', qs.stringify(data), { headers: headers })
             .then(response => {
                 // Handle success.
                 console.log(response.data)
