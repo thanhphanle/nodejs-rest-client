@@ -33,6 +33,26 @@ const RestClient = class {
             });
     }
 
+    // Get user data by id with Authorization header
+    // http://localhost:8080/users?id=<id>
+    getUser(id) {
+        let headers = {
+            'Authorization': 'Bearer ' + token
+        }
+        let params = {
+            id: id
+        }
+        axios.get('http://localhost:8080/users', { params: params, headers: headers })
+            .then(response => {
+                // Handle success.
+                console.log(response.data)
+            })
+            .catch(error => {
+                // Handle error.
+                console.error('An error occurred:', error);
+            });
+    }
+
     // Post with Authorization header and json body
     saveUser(token, user) {
         let headers = {
