@@ -26,7 +26,7 @@ const RestClient = class {
         let headers = {
             'Authorization': 'Bearer ' + token
         }
-        axios.get('http://localhost:8080/users', { headers: headers })
+        axios.get('http://localhost:8080/users', { headers: headers, timeout: 5000 })
             .then(response => {
                 // Handle success.
                 console.log(response.data)
@@ -46,7 +46,7 @@ const RestClient = class {
         let params = {
             id: id
         }
-        axios.get('http://localhost:8080/users', { params: params, headers: headers })
+        axios.get('http://localhost:8080/users', { params: params, headers: headers, timeout: 5000 })
             .then(response => {
                 // Handle success.
                 console.log(response.data)
