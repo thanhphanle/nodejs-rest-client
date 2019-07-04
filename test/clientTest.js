@@ -1,4 +1,4 @@
-const RestClient = require('../src/restClient')
-const restClient = new RestClient()
+const RestClient = require('../src/client');
+const restClient = new RestClient();
 
-restClient.login('admin', '123456')
+restClient.login('admin', '123456');

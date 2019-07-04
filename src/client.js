@@ -1,4 +1,4 @@
-const axios = require('axios')
+const axios = require('axios');
 const qs = require('qs');
 
 const RestClient = class {
@@ -15,7 +15,7 @@ const RestClient = class {
         axios.post('http://localhost:3000/login', data)
             .then(response => {
                 // Handle success.
-                console.log(response.data)
+                console.log(response.data);
             })
             .catch(error => {
                 // Handle error.
@@ -35,7 +35,7 @@ const RestClient = class {
         axios.get('http://localhost:3000/users', { headers: headers, timeout: 5000 })
             .then(response => {
                 // Handle success.
-                console.log(response.data)
+                console.log(response.data);
             })
             .catch(error => {
                 // Handle error.
@@ -58,7 +58,7 @@ const RestClient = class {
         axios.get('http://localhost:3000/users', { params: params, headers: headers, timeout: 5000 })
             .then(response => {
                 // Handle success.
-                console.log(response.data)
+                console.log(response.data);
             })
             .catch(error => {
                 // Handle error.
@@ -83,7 +83,7 @@ const RestClient = class {
         axios.get('http://localhost:3000/users', { params: params, headers: headers, timeout: 5000 })
             .then(response => {
                 // Handle success.
-                console.log(response.data)
+                console.log(response.data);
             })
             .catch(error => {
                 // Handle error.
@@ -108,7 +108,7 @@ const RestClient = class {
         axios.post('http://localhost:3000/users', data, { headers: headers })
             .then(response => {
                 // Handle success.
-                console.log(response.data)
+                console.log(response.data);
             })
             .catch(error => {
                 // Handle error.
@@ -132,7 +132,7 @@ const RestClient = class {
         axios.post('http://localhost:3000/submit-form', qs.stringify(data), { headers: headers })
             .then(response => {
                 // Handle success.
-                console.log(response.data)
+                console.log(response.data);
             })
             .catch(error => {
                 // Handle error.
@@ -141,4 +141,4 @@ const RestClient = class {
     }
 }
 
-module.exports = RestClient
+module.exports = RestClient;
