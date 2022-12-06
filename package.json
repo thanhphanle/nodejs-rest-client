@@ -19,6 +19,6 @@
   "homepage": "https://github.com/thanhpl/nodejs-rest-client#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "qs": "^6.6.0"
+    "qs": "^6.6.1"
   }
 }
